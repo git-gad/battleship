@@ -1,3 +1,5 @@
+from os import system
+
 def valid_input(coordinates: list):
     if len(coordinates) != 2:
         return False
@@ -15,3 +17,13 @@ def get_coordinates():
         new_coordinates = new_coordinates.split()
         new_coordinates = list(map(int, new_coordinates))
     return new_coordinates
+
+def print_map(map):
+    system('cls')
+    print('   0  1  2  3  4  5  6  7  8  9')
+    col = 0
+    for row in map:
+        row = str(row)
+        clean_row = row.replace('[', '').replace(']', '').replace("'", '').replace(',', '')
+        print(col, clean_row)
+        col += 1
